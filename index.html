@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow | To-do & Habit Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">TF</span>
+        <div><strong>TaskFlow</strong><small>Plan less. Do more.</small></div>
+      </div>
+      <time id="todayLabel"></time>
+    </header>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">YOUR PRODUCTIVITY SPACE</p>
+          <h1>Make today count<span>.</span></h1>
+          <p class="hero-copy">
+            Turn intentions into small, repeatable actions.
+          </p>
+        </div>
+        <div class="hero-orbit"><span>✦</span><b>FOCUS</b></div>
+      </section>
+
+      <section class="metrics" aria-label="Productivity summary">
+        <article class="metric">
+          <span class="metric-icon purple">✓</span>
+          <div>
+            <strong id="totalTasks">0</strong><small>Total tasks</small>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon green">↗</span>
+          <div>
+            <strong id="completedTasks">0</strong><small>Completed</small>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon orange">↻</span>
+          <div>
+            <strong id="habitCount">0</strong><small>Active habits</small>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon blue">★</span>
+          <div>
+            <strong id="todayHabits">0</strong><small>Habits done today</small>
+          </div>
+        </article>
+      </section>
+
+      <div class="columns">
+        <section class="card tasks-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">ACTION LIST</p>
+              <h2>Today’s tasks</h2>
+            </div>
+            <span class="count-badge" id="visibleCount">0 items</span>
+          </div>
+          <button type="button" id="enableNotifications" class="ghost-button">
+            🔔 Enable deadline reminders
+          </button>
+          <form class="task-form" id="taskForm">
+            <input
+              id="taskInput"
+              placeholder="Add a task for today…"
+              required
+            /><input
+              type="date"
+              id="dueDateInput"
+              aria-label="Due date"
+            /><select id="priorityInput" aria-label="Priority">
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="low">Low</option></select
+            ><button class="primary-button">Add task</button>
+          </form>
+          <nav class="filters">
+            <button class="filter active" data-filter="all">All</button
+            ><button class="filter" data-filter="active">Active</button
+            ><button class="filter" data-filter="done">Completed</button>
+          </nav>
+          <div id="taskList" class="task-list"></div>
+        </section>
+
+        <aside class="card habits-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">BUILD CONSISTENCY</p>
+              <h2>Daily habits</h2>
+            </div>
+            <span class="percent-badge" id="habitProgress">0%</span>
+          </div>
+          <div class="progress-label">
+            <span>Today’s progress</span><b id="habitProgressText">0 of 0</b>
+          </div>
+          <div class="progress-track"><div id="habitBar"></div></div>
+          <div id="habitList" class="habit-list"></div>
+          <form class="habit-form" id="habitForm">
+            <input
+              id="habitInput"
+              placeholder="Add a new habit…"
+              required
+            /><button class="secondary-button">＋ Add habit</button>
+          </form>
+        </aside>
+      </div>
+
+      <section class="quote-card">
+        <span class="quote-mark">“</span>
+        <div>
+          <p>
+            Consistency is not about being perfect. It is about returning to
+            what matters.
+          </p>
+          <small>— Your future self</small>
+        </div>
+      </section>
+    </main>
+    <footer>TaskFlow stores your data locally in this browser.</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
